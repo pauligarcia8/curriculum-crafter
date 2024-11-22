@@ -1,5 +1,4 @@
 :root {
-  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   font-family: "Mulish", sans-serif;
   font-style: normal;
   font-optical-sizing: auto;
@@ -21,6 +20,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 .app {
@@ -45,23 +49,27 @@ nav {
   justify-content: space-between;
   padding: 2rem;
   flex-grow: 1;
+  overflow: visible;
 }
 
 .form-container {
   flex: 2;
-}
-
-.form-container, .preview-container  {
+  overflow-y: auto;
+  max-height: calc(100vh - 182px);
   background-color: white;
   color: black;
-  text-align: center;
-  border-radius: 1rem;
   padding: 10px;
   margin: 0 10px;
+  border-radius: 1rem;
 }
 
 .preview-container {
   flex: 1;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  margin: 0 10px;
+  border-radius: 1rem;
 }
 
 footer {
@@ -69,5 +77,4 @@ footer {
   text-align: center;
   padding: 1rem;
   border: 1px black solid;
-
 }
