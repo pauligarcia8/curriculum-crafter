@@ -1,7 +1,16 @@
+import { useContext } from "react";
+import { FormContext } from "../store/user-form-context";
+
+
 const CvPreview = () => {
+const { initialState } = useContext(FormContext);
+const { fullname, lastname } = initialState.personalInfo;
+
+const name = fullname + ' ' + lastname;
+
     return (
         <div className="preview-container">
-            <h1>CV Preview</h1>
+            <h1>{name}</h1>
         </div>
     )
 }
