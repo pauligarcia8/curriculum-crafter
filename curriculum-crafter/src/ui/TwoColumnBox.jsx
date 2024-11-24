@@ -3,10 +3,10 @@ import { FormContext } from '../store/user-form-context';
 import Input from './Input';
 import classes from './TwoColumnBox.module.css';
 
-const TwoColumnBox = ({title}) => {
+const TwoColumnBox = ({title, inputType}) => {
     const { updatePersonalInfo } = useContext(FormContext);
 
-    const inputConfig = [
+    const personalDataInputConfig = [
         { name: "fullname", label: "Nombre/s", type: "text", column: 1 },
         { name: "lastname", label: "Apellido/s", type: "text", column: 1 },
         { name: "birthdate", label: "Date of Birth", type: "date", column: 1 },
@@ -15,7 +15,14 @@ const TwoColumnBox = ({title}) => {
         { name: "country", label: "Country", type: "text", column: 2 },
         { name: "city", label: "City", type: "text", column: 2 },
         { name: "address", label: "Address", type: "text", column: 2 },
-      ];
+    ];
+    
+    const dateInputConfig = [
+        { name: "fromdate", label: "From", type: "date", column: 1 },
+        { name: "todate", label: "To", type: "date", column: 2 },
+    ]
+    
+    const inputConfig = inputType === 'date' ? dateInputConfig : personalDataInputConfig;
 
     const handlePersonalDetailChange = (e) => {
         const { name, value } = e.target;
@@ -40,7 +47,7 @@ const TwoColumnBox = ({title}) => {
 
     return (
         <div className={classes.boxContainer}>
-            <h2>{title}</h2>
+            {title && <h2>{title}</h2>}
             <div className={classes.inputContainer}>
                 <div className={classes.column}>
                     {renderInputs(1)}

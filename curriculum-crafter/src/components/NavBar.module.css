@@ -1,0 +1,20 @@
+.navContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: right;
+    padding: 1rem;
+    border: 1px black solid;
+    background-color: white;
+    color: black;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    height: 2rem;
+}
