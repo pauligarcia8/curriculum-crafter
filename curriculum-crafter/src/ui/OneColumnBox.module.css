@@ -1,0 +1,8 @@
+.boxContainer {
+    text-align: left;
+    line-height: 2rem;
+}
+
+.boxContainer h2 {
+    margin-top: 10px;
+}

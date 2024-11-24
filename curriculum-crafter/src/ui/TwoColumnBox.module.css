@@ -1,7 +1,10 @@
 .boxContainer {
     text-align: left;
     line-height: 2rem;
-    padding: 10px 0;
+}
+
+.boxContainer h2 {
+    margin-top: 10px;
 }
 
 .inputContainer {

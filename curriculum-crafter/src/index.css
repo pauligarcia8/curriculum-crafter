@@ -33,17 +33,6 @@ body {
   min-height: 100vh;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: right;
-  padding: 1rem;
-  border: 1px black solid;
-  background-color: white;
-  color: black;
-}
-
 .container {
   display: flex;
   justify-content: space-between;
