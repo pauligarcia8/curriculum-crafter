@@ -1,10 +1,7 @@
-import { useContext } from 'react';
-import { FormContext } from '../store/user-form-context';
 import Input from './Input';
 import classes from './TwoColumnBox.module.css';
 
-const TwoColumnBox = ({title, inputType}) => {
-    const { updatePersonalInfo } = useContext(FormContext);
+const TwoColumnBox = ({title, inputType, onFieldChange,}) => {
 
     const personalDataInputConfig = [
         { name: "fullname", label: "Nombre/s", type: "text", column: 1 },
@@ -18,16 +15,11 @@ const TwoColumnBox = ({title, inputType}) => {
     ];
     
     const dateInputConfig = [
-        { name: "fromdate", label: "From", type: "date", column: 1 },
-        { name: "todate", label: "To", type: "date", column: 2 },
+        { name: "startDate", label: "From", type: "date", column: 1 },
+        { name: "endDate", label: "To", type: "date", column: 2 },
     ]
     
     const inputConfig = inputType === 'date' ? dateInputConfig : personalDataInputConfig;
-
-    const handlePersonalDetailChange = (e) => {
-        const { name, value } = e.target;
-        updatePersonalInfo({ [name]: value });
-    }
 
     const renderInputs = (column) => {
         const filteredInputs = inputConfig.filter((input) => input.column === column);
@@ -39,7 +31,7 @@ const TwoColumnBox = ({title, inputType}) => {
                     name={input.name}
                     label={input.label}
                     type={input.type}
-                    onChange={handlePersonalDetailChange}
+                    onChange={(e) => onFieldChange(input.name, e.target.value)}
                 />
             )
         })

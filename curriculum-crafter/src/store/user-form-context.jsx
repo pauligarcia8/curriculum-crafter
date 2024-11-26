@@ -1,80 +1,48 @@
 import { createContext, useState } from "react";
-
-const initialState = {
-  personalInfo: {
-    fullname: "",
-    lastname: "",
-    birthdate: "",
-    email: "",
-    phone: "",
-    country: "",
-    city: "",
-    address: "",
-  },
-  workExperience: [
-    {
-      company: "",
-      position: "",
-      startDate: "",
-      endDate: "",
-      description: "",
-    },
-  ],
-  education: [
-    {
-      institution: "",
-      degree: "",
-      startDate: "",
-      endDate: "",
-    },
-  ],
-  skills: [],
-};
+import { formData as cvFormData } from "../utils/formData";
 
 const ctxValue = {
-  initialState,
-  updatePersonalInfo: () => {},
-  updateWorkExperience: () => {},
-  updateEducation: () => {},
-  updateSkill: () => {},
+  cvFormData,
+  handleFieldChange: () => {},
 };
 
 export const FormContext = createContext(ctxValue);
 
 export default function FormContextProvider({ children }) {
-  const [formState, setFormState] = useState(initialState);
+  const [formState, setFormState] = useState(cvFormData);
 
-  const handleUpdatePersonalInfo = (newInfo) => {
-    setFormState((prevState) => ({
+  const handleFieldChange = (section, key, value, index = null) => {
+    setFormState((prevState) => {
+      const sectionData = prevState[section];
+  
+      if (Array.isArray(sectionData)) {
+        // Si la sección es un array (workExperience, education)
+        const updatedArray = sectionData.map((item, i) =>
+          i === index ? { ...item, [key]: value } : item
+        );
+        return {
+          ...prevState,
+          [section]: updatedArray,
+        };
+      }
+  
+      // Si la sección es un objeto (personalInfo)
+      return {
         ...prevState,
-        personalInfo: {
-            ...prevState.personalInfo,
-            ...newInfo
-        }
-    }));
-  }
-
-  const handleUpdateWorkExperience = () => {
-    
-  }
-
-  const handleUpdateEducation = () => {
-    
-  }
-
-  const handleUpdateSkill = () => {
-
-  }
+        [section]: {
+          ...sectionData,
+          [key]: value,
+        },
+      };
+    });
+  };
 
   const ctxValue = {
-    initialState: formState,
-    updatePersonalInfo: handleUpdatePersonalInfo,
-    updateWorkExperience: handleUpdateWorkExperience,
-    updateEducation: handleUpdateEducation,
-    updateSkill: handleUpdateSkill,
+    cvFormData: formState,
+    handleFieldChange,
   };
 
   return (
     <FormContext.Provider value={ctxValue}>{children}</FormContext.Provider>
   );
-};
+}

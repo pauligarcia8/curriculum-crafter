@@ -3,8 +3,8 @@ import { FormContext } from "../store/user-form-context";
 
 
 const CvPreview = () => {
-const { initialState } = useContext(FormContext);
-const { fullname, lastname } = initialState.personalInfo;
+const { cvFormData } = useContext(FormContext);
+const { fullname, lastname } = cvFormData.personalInfo;
 
 const name = fullname + ' ' + lastname;
 
