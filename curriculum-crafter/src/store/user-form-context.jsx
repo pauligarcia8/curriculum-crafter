@@ -15,18 +15,27 @@ export default function FormContextProvider({ children }) {
     setFormState((prevState) => {
       const sectionData = prevState[section] || [];
   
+      // Si la sección es un array
       if (Array.isArray(sectionData)) {
-        // Si la sección es un array (workExperience, education)
-        const updatedArray = sectionData.map((item, i) =>
-          i === index ? { ...item, [key]: value } : item
-        );
-        return {
-          ...prevState,
-          [section]: updatedArray,
-        };
+        if (key === null) {
+          // Manejar arrays simples como 'skills'
+          return {
+            ...prevState,
+            [section]: value, // Sobrescribe todo el array (para agregar/eliminar elementos)
+          };
+        } else {
+          // Manejar arrays de objetos (como workExperience, education)
+          const updatedArray = sectionData.map((item, i) =>
+            i === index ? { ...item, [key]: value } : item
+          );
+          return {
+            ...prevState,
+            [section]: updatedArray,
+          };
+        }
       }
   
-      // Si la sección es un objeto (personalInfo)
+      // Si la sección es un objeto (como personalInfo)
       return {
         ...prevState,
         [section]: {
