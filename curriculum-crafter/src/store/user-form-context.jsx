@@ -13,7 +13,7 @@ export default function FormContextProvider({ children }) {
 
   const handleFieldChange = (section, key, value, index = null) => {
     setFormState((prevState) => {
-      const sectionData = prevState[section];
+      const sectionData = prevState[section] || [];
   
       if (Array.isArray(sectionData)) {
         // Si la sección es un array (workExperience, education)

@@ -26,3 +26,30 @@
     max-height: 500px; 
     overflow-y: auto; 
 }
+
+.button {
+    margin-top: 1rem;
+    height: 30px;
+    width: 25%;
+    align-items: center;
+    background-color: #A53860;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: 200;
+}
+
+.button:hover {
+    background-color: #973257;
+}
+
+.button:focus {
+    border: 1px solid #ac446a;
+}
+
+.button:active {
+    background-color: #ac446a;
+    border: 1px solid #65263d;
+
+}

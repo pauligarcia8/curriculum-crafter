@@ -1,25 +1,7 @@
 import Input from './Input';
 import classes from './TwoColumnBox.module.css';
 
-const TwoColumnBox = ({title, inputType, onFieldChange,}) => {
-
-    const personalDataInputConfig = [
-        { name: "fullname", label: "Nombre/s", type: "text", column: 1 },
-        { name: "lastname", label: "Apellido/s", type: "text", column: 1 },
-        { name: "birthdate", label: "Date of Birth", type: "date", column: 1 },
-        { name: "email", label: "Email", type: "email", column: 1 },
-        { name: "phone", label: "Phone Number", type: "text", column: 2 },
-        { name: "country", label: "Country", type: "text", column: 2 },
-        { name: "city", label: "City", type: "text", column: 2 },
-        { name: "address", label: "Address", type: "text", column: 2 },
-    ];
-    
-    const dateInputConfig = [
-        { name: "startDate", label: "From", type: "date", column: 1 },
-        { name: "endDate", label: "To", type: "date", column: 2 },
-    ]
-    
-    const inputConfig = inputType === 'date' ? dateInputConfig : personalDataInputConfig;
+const TwoColumnBox = ({title, description, inputConfig, onFieldChange}) => {
 
     const renderInputs = (column) => {
         const filteredInputs = inputConfig.filter((input) => input.column === column);
@@ -40,6 +22,7 @@ const TwoColumnBox = ({title, inputType, onFieldChange,}) => {
     return (
         <div className={classes.boxContainer}>
             {title && <h2>{title}</h2>}
+            {description && <p>{description}</p>}
             <div className={classes.inputContainer}>
                 <div className={classes.column}>
                     {renderInputs(1)}
