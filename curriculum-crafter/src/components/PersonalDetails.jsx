@@ -5,10 +5,12 @@ import OneColumnBox from "../ui/OneColumnBox";
 
 const personalDataInputConfig = [
   { name: "fullname", label: "Nombre/s", type: "text", column: 1 },
-  { name: "lastname", label: "Apellido/s", type: "text", column: 1 },
+  { name: "charge", label: "Charge", type: "text", column: 1 },
   { name: "birthdate", label: "Date of Birth", type: "date", column: 1 },
   { name: "email", label: "Email", type: "email", column: 1 },
-  { name: "phone", label: "Phone Number", type: "text", column: 2 },
+  { name: "phone", label: "Phone Number", type: "text", column: 1 },
+  { name: "lastname", label: "Apellido/s", type: "text", column: 2 },
+  { name: "site", label: "Social network", type: "text", column: 2 },
   { name: "country", label: "Country", type: "text", column: 2 },
   { name: "city", label: "City", type: "text", column: 2 },
   { name: "address", label: "Address", type: "text", column: 2 },

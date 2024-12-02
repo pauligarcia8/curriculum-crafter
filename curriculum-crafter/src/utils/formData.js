@@ -8,7 +8,9 @@ export const formData = {
       country: "",
       city: "",
       address: "",
-      profile: ""
+      profile: "",
+      charge: "",
+      site: ""
     },
     workExperience: [
       {

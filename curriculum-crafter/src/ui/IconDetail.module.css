@@ -1,0 +1,20 @@
+.iconDetailContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.iconDetailContainer img {
+  flex-shrink: 0;
+}
+
+.iconDetailContainer p {
+  margin: 0;
+  flex: 1;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+}
