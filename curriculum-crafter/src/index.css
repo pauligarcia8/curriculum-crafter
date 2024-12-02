@@ -52,14 +52,14 @@ body {
   border-radius: 1rem;
 }
 
-.preview-container {
+/* .preview-container {
   flex: 1;
   background-color: white;
   color: black;
   padding: 10px;
   margin: 0 10px;
   border-radius: 1rem;
-}
+} */
 
 footer {
   font-size: x-small;
