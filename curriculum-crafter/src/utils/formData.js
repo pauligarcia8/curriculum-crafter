@@ -27,6 +27,7 @@ export const formData = {
         degree: "",
         startDate: "",
         endDate: "",
+        description: "",
       },
     ],
     skills: [],
