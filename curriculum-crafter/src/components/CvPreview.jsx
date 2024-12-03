@@ -1,37 +1,39 @@
 import { useContext } from "react";
 import { FormContext } from "../store/user-form-context";
 import classes from "./CvPreview.module.css";
-import emailIcon from "../assets/mail-svgrepo-com.svg";
-import phoneIcon from "../assets/mobile-svgrepo-com.svg";
-import birthdateIcon from "../assets/calendar-svgrepo-com.svg";
-import addressIcon from "../assets/branch-svgrepo-com.svg";
-import siteIcon from "../assets/world-svgrepo-com.svg";
 import IconDetail from "../ui/IconDetail";
+import CategoryBlock from "../ui/CategoryBlock";
+import { getDetailsData } from "../utils/personalDetails";
 
 const CvPreview = () => {
   const { cvFormData } = useContext(FormContext);
+  const { fullname, lastname, profile, charge } = cvFormData.personalInfo;
+  const details = getDetailsData(cvFormData.personalInfo);
   const {
-    fullname,
-    lastname,
-    email,
-    phone,
-    birthdate,
-    profile,
-    country,
-    city,
-    address,
-    charge,
-    site,
-  } = cvFormData.personalInfo;
-  const { company, position, startDate, endDate, description } =
-    cvFormData.workExperience[0];
+    company,
+    position,
+    startDate: workStartDate,
+    endDate: workEndDate,
+    description: workDescription,
+  } = cvFormData.workExperience[0];
+
+  const {
+    institution,
+    degree,
+    startDate: educationStartDate,
+    endDate: educationEndDate,
+    description: educationDescription,
+  } = cvFormData.education[0];
   const { skills } = cvFormData;
 
   const name = fullname + " " + lastname;
-  const fullAddress = [country, city, address].filter(Boolean).join(", ");
   const concateSkills = skills.join(", ");
   const work = [company, position].filter(Boolean).join(", ");
-  const duration = [startDate, endDate].filter(Boolean).join(" / ");
+  const workDuration = [workStartDate, workEndDate].filter(Boolean).join(" / ");
+  const education = [institution, degree].filter(Boolean).join(", ");
+  const educationDuration = [educationStartDate, educationEndDate]
+    .filter(Boolean)
+    .join(" / ");
 
   return (
     <div className={classes.previewContainer}>
@@ -47,21 +49,34 @@ const CvPreview = () => {
           </div>
         )}
         <div className={classes.details}>
-          <IconDetail icon={emailIcon} altText="email-icon" detail={email} />
-          <IconDetail icon={phoneIcon} altText="phone-icon" detail={phone} />
-          <IconDetail icon={siteIcon} altText="site-icon" detail={site} />
-          <IconDetail icon={birthdateIcon} altText="birthdate-icon" detail={birthdate} />
-          <IconDetail icon={addressIcon} altText="address-icon" detail={fullAddress} />
+          {details.map(({ icon, altText, detail }, index) => (
+            <IconDetail
+              key={index}
+              icon={icon}
+              altText={altText}
+              detail={detail}
+            />
+          ))}
         </div>
       </div>
       <div className={classes.categories}>
         <h1>{name}</h1>
-        <h2>Work Experience</h2>
-        <div className={classes.workDuration}>
-          <p>{work}</p>
-          <p>{duration}</p>
-        </div>
-        <p>{description}</p>
+        {work && (
+          <CategoryBlock
+            title="Work Experience"
+            category={work}
+            duration={workDuration}
+            description={workDescription}
+          />
+        )}
+        {education && (
+          <CategoryBlock
+            title="Education"
+            category={education}
+            duration={educationDuration}
+            description={educationDescription}
+          />
+        )}
       </div>
     </div>
   );
