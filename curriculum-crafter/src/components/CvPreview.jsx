@@ -4,6 +4,7 @@ import classes from "./CvPreview.module.css";
 import IconDetail from "../ui/IconDetail";
 import CategoryBlock from "../ui/CategoryBlock";
 import { getDetailsData } from "../utils/personalDetails";
+import { formatDate } from "../utils/date";
 
 const CvPreview = () => {
   const { cvFormData } = useContext(FormContext);
@@ -29,9 +30,14 @@ const CvPreview = () => {
   const name = fullname + " " + lastname;
   const concateSkills = skills.join(", ");
   const work = [company, position].filter(Boolean).join(", ");
-  const workDuration = [workStartDate, workEndDate].filter(Boolean).join(" / ");
+  const workDuration = [formatDate(workStartDate), formatDate(workEndDate)]
+    .filter(Boolean)
+    .join(" / ");
   const education = [institution, degree].filter(Boolean).join(", ");
-  const educationDuration = [educationStartDate, educationEndDate]
+  const educationDuration = [
+    formatDate(educationStartDate),
+    formatDate(educationEndDate),
+  ]
     .filter(Boolean)
     .join(" / ");
 
