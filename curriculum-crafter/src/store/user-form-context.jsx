@@ -4,6 +4,8 @@ import { formData as cvFormData } from "../utils/formData";
 const ctxValue = {
   cvFormData,
   handleFieldChange: () => {},
+  addSection: () => {},
+  removeSection: () => {}
 };
 
 export const FormContext = createContext(ctxValue);
@@ -46,9 +48,34 @@ export default function FormContextProvider({ children }) {
     });
   };
 
+  const addSection = (section) => {
+    console.log("ADDING SECTION -->", section);
+    setFormState(prevState => {
+      const newSection = {
+        id: Date.now(),
+        company: "",
+        position: "",
+        startDate: "",
+        endDate: "",
+        description: "",
+      };
+      return {...prevState, [section]: [...prevState[section], newSection]}
+    });
+  }
+
+  const removeSection = (section, index) => {
+    console.log("REMOVING SECTION -->", section);
+    setFormState(prevState => {
+      const updatedSection = prevState[section].filter((_, i) => i !== index);
+      return {...prevState, [section]: updatedSection};
+    })
+  }
+
   const ctxValue = {
     cvFormData: formState,
     handleFieldChange,
+    addSection,
+    removeSection
   };
 
   return (

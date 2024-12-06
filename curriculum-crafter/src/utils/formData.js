@@ -14,6 +14,7 @@ export const formData = {
     },
     workExperience: [
       {
+        id: Date.now(),
         company: "",
         position: "",
         startDate: "",
