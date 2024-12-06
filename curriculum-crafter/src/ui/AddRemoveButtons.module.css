@@ -1,0 +1,19 @@
+.buttonsContainer {
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+}
+
+.button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.button:first-child:hover .icon {
+    color: #75B9BE;
+}
+
+.button:last-child:hover .icon {
+    color: #EE7674;
+}
