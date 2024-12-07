@@ -24,6 +24,7 @@ export const formData = {
     ],
     education: [
       {
+        id: Date.now(),
         institution: "",
         degree: "",
         startDate: "",
