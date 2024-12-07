@@ -1,4 +1,4 @@
-import { formatDate, isDateString } from "../utils/date";
+import { formatDate, isDateString } from "../utils/dataUtils";
 import classes from "./IconDetail.module.css";
 
 const IconDetail = ({ icon, altText, detail }) => {
