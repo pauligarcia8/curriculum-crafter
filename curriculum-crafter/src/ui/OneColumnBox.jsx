@@ -2,7 +2,7 @@ import Input from "./Input";
 import classes from "./OneColumnBox.module.css";
 
 const OneColumnBox = ({ title, description, label, name, onFieldChange }) => {
-
+  console.log('Name', name)
   return (
     <div className={classes.boxContainer}>
       <h2>{title}</h2>
