@@ -1,7 +1,6 @@
 import classes from "./CategoryBlock.module.css";
 
 const CategoryBlock = ({ title, category, duration, description }) => {
-    console.log(description);
     return (
         <>
             <h2 className={classes.title}>{title}</h2>

@@ -1,7 +1,7 @@
 export const formatDate = (date) => {
   const options = { year: "numeric", month: "short", day: "numeric" };
   try {
-    return new Intl.DateTimeFormat("en-EN", options).format(new Date(date));
+    return new Intl.DateTimeFormat("en-EN", options).format(new Date(date.split('-')));
   } catch {
     return "";
   }
@@ -13,9 +13,13 @@ export const isDateString = (value) => {
 };
 
 export const concatenateDuration = (startDate, endDate) => {
-  return [formatDate(startDate), formatDate(endDate)]
-    .filter(Boolean)
-    .join(" / ");
+  if (startDate && !endDate) {
+    return formatDate(startDate) + ' / in progress';
+  } else {
+    return [formatDate(startDate), formatDate(endDate)]
+      .filter(Boolean)
+      .join(" / ");
+  }
 }
 
 export const concatenateCategoryData = (...params) => {
