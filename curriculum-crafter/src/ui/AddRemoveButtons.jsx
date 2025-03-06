@@ -10,7 +10,7 @@ const AddRemoveButtons = ({ section, index, addSection, removeSection }) => {
         className="cursor-pointer"
         onClick={() => removeSection(section, index)}
       >
-        <MinusCircleIcon className="size-6 text-red-700"/>
+        <MinusCircleIcon className="size-6 text-red-700" />
       </button>
     </div>
   );

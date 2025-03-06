@@ -21,11 +21,17 @@ const TwoColumnBox = ({ title, description, inputConfig, onFieldChange }) => {
 
   return (
     <div className="text-left leading-8">
-      {title && <h2 className="mt-2.5 text-lg text-slate-800 font-medium">{title}</h2>}
+      {title && (
+        <h2 className="mt-2.5 text-lg text-slate-800 font-medium">{title}</h2>
+      )}
       {description && <p className="text-sm">{description}</p>}
       <div className="flex items-center justify-between gap-5 overflow-y-auto">
-        <div className="flex flex-1 flex-col max-h-[500px]">{renderInputs(1)}</div>
-        <div className="flex flex-1 flex-col max-h-[500px]">{renderInputs(2)}</div>
+        <div className="flex flex-1 flex-col max-h-[500px]">
+          {renderInputs(1)}
+        </div>
+        <div className="flex flex-1 flex-col max-h-[500px]">
+          {renderInputs(2)}
+        </div>
       </div>
     </div>
   );

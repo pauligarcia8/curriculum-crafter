@@ -10,7 +10,7 @@ function App() {
     <FormContextProvider>
       <div className="flex flex-col">
         <NavBar />
-        <div className="flex justify-between p-8 grow overflow-visible">
+        <div className="flex justify-between p-6 grow overflow-visible">
           <CvForm />
           <CvPreview />
         </div>
