@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { FormContext } from "../store/user-form-context";
 import IconDetail from "../ui/IconDetail";
 import CategoryBlock from "../ui/CategoryBlock";
-import { getDetailsData } from "../utils/personalDetails";
+import { getDetailsData } from "../utils/personalDetails.jsx";
 import {
   concatenateCategoryData,
   concatenateDuration,
@@ -24,7 +24,7 @@ const CvPreview = () => {
   return (
     <div className="w-[210mm] h-[297mm] max-w-2xl max-h-[90vh] rounded-lg flex flex-col shadow-lg overflow-hidden">
       <div className="flex flex-1">
-        <div className="flex flex-col justify-between p-2.5 w-1/3 max-w-1/3 break-words bg-gray-200 overflow-auto">
+        <div className="flex flex-col justify-start p-2.5 w-1/3 max-w-1/3 break-words bg-gray-200 overflow-auto">
           <div className="h-4/6">
             <h3 className="font-semibold">{charge}</h3>
             <p className="text-sm">{profile}</p>
@@ -46,7 +46,7 @@ const CvPreview = () => {
             ))}
           </div>
         </div>
-        <div className="flex-1 p-2.5 break-words  overflow-auto">
+        <div className="flex-1 p-2.5 break-words overflow-auto flex flex-col justify-start">
           <h1 className="text-2xl">{name}</h1>
           {hasExperience &&
             cvFormData.workExperience.map((experience, i) => (

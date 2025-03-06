@@ -1,16 +1,16 @@
 import { formatDate, isDateString } from "../utils/dataUtils";
-import classes from "./IconDetail.module.css";
 
 const IconDetail = ({ icon, altText, detail }) => {
-
   const formattedDetail = isDateString(detail) ? formatDate(detail) : detail;
 
   return (
-    <div className={classes.iconDetailContainer}>
+    <div className="flex items-start gap-2">
       {formattedDetail && (
         <>
-          <img src={icon} alt={altText} width="10" />
-          <p>{formattedDetail}</p>
+          <div className="w-6 h-6 flex flex-shrink-0 items-center justify-center">{icon}</div>
+          <span className="text-gray-700 break-words whitespace-pre-wrap overflow-hidden">
+            {detail}
+          </span>
         </>
       )}
     </div>
@@ -18,3 +18,4 @@ const IconDetail = ({ icon, altText, detail }) => {
 };
 
 export default IconDetail;
+

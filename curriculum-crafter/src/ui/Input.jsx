@@ -12,7 +12,7 @@ const Input = ({ label, name, textarea, className, ...props }) => {
         id={name}
         maxLength="150"
         name={name}
-        className={`w-full p-2 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-500 focus:border-gray-500 ${
+        className={`w-full p-2 text-base bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-500 focus:border-gray-500 ${
           className || ""
         }`}
         {...props}
