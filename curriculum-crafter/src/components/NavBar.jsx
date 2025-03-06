@@ -1,14 +1,12 @@
 import cvIcon from "../assets/tie.png";
-import classes from "./NavBar.module.css";
 
 const NavBar = () => {
     return (
-        <nav className={classes.navContainer}>
-            <div className={classes.title}>
-                <img className={classes.icon} src={cvIcon} />
-                <h1>Curriculum Crafter</h1>
+        <nav className="flex items-center justify-between text-right p-4 bg-gray-300">
+            <div className="flex items-center justify-center">
+                <img className="size-8" src={cvIcon} />
+                <h1 className="text-2xl font-medium">Curriculum Crafter</h1>
             </div>
-            <p>Navigation Bar</p>
         </nav>
     )
 }

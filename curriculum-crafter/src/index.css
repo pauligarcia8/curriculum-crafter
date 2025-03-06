@@ -1,3 +1,6 @@
+ @import "tailwindcss";
+ @plugin 'tailwind-scrollbar';
+ /*
 :root {
   font-family: "Mulish", sans-serif;
   font-style: normal;
@@ -61,9 +64,9 @@ body {
   border-radius: 1rem;
 } */
 
-footer {
+/* footer {
   font-size: x-small;
   text-align: center;
   padding: 1rem;
   border: 1px black solid;
-}
+}  */

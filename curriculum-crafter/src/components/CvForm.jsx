@@ -10,7 +10,7 @@ const CvForm = () => {
   console.log("DATA:", cvFormData);
 
   return (
-    <div className="form-container">
+    <div className="flex-[2] max-h-[calc(100vh-182px)] shadow-md scrollbar-thin overflow-y-auto bg-white text-black p-2.5 my-0 mx-2.5 rounded-2xl">
       <PersonalDetails />
       <WorkExperience />
       <Education />
