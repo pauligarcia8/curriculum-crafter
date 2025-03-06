@@ -8,9 +8,9 @@ function App() {
 
   return (
     <FormContextProvider>
-      <div className="app">
+      <div className="flex flex-col">
         <NavBar />
-        <div className="container">
+        <div className="flex justify-between p-6 grow overflow-visible">
           <CvForm />
           <CvPreview />
         </div>

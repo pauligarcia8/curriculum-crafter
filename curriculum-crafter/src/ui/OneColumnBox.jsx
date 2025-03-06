@@ -1,11 +1,9 @@
 import Input from "./Input";
-import classes from "./OneColumnBox.module.css";
 
 const OneColumnBox = ({ title, description, label, name, onFieldChange }) => {
-  console.log('Name', name)
   return (
-    <div className={classes.boxContainer}>
-      <h2>{title}</h2>
+    <div className="text-left leading-8">
+      <h2 className="mt-2.5 text-lg text-slate-800 font-medium">{title}</h2>
       <p>{description}</p>
       <Input
         textarea

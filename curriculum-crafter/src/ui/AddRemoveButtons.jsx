@@ -1,15 +1,19 @@
-import classes from "./AddRemoveButtons.module.css";
-import addIcon from "../assets/plus-circle-svgrepo-com.svg";
-import removeIcon from "../assets/minus-circle-svgrepo-com.svg";
+import { PlusCircleIcon, MinusCircleIcon } from "@heroicons/react/24/outline";
 
-const AddRemoveButtons = ({section, index, addSection, removeSection}) => {
-
-    return (
-        <div className={classes.buttonsContainer}>
-          <button className={classes.button} onClick={() => addSection(section)}><img className={classes.icon} src={addIcon} width="20"/></button>
-          <button className={classes.button} onClick={() => removeSection(section, index)}><img className={classes.icon} src={removeIcon} width="20"/></button>
-        </div>
-    )
-}
+const AddRemoveButtons = ({ section, index, addSection, removeSection }) => {
+  return (
+    <div className="flex gap-2.5 justify-end">
+      <button className="cursor-pointer" onClick={() => addSection(section)}>
+        <PlusCircleIcon className="size-6 text-blue-500" />
+      </button>
+      <button
+        className="cursor-pointer"
+        onClick={() => removeSection(section, index)}
+      >
+        <MinusCircleIcon className="size-6 text-red-700" />
+      </button>
+    </div>
+  );
+};
 
 export default AddRemoveButtons;
